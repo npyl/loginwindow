@@ -11,6 +11,7 @@
 		096B341E286B28BF00A1DBCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 096B341D286B28BF00A1DBCC /* Assets.xcassets */; };
 		096B3421286B28BF00A1DBCC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 096B341F286B28BF00A1DBCC /* MainMenu.xib */; };
 		096B3424286B28BF00A1DBCC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 096B3423286B28BF00A1DBCC /* main.m */; };
+		09EB503D287246E60030EF43 /* UserImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB503C287246E60030EF43 /* UserImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,8 @@
 		096B3422286B28BF00A1DBCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		096B3423286B28BF00A1DBCC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		096B3425286B28BF00A1DBCC /* loginwindow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = loginwindow.entitlements; sourceTree = "<group>"; };
+		09EB503C287246E60030EF43 /* UserImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserImage.m; sourceTree = "<group>"; };
+		09EB503E287247C80030EF43 /* UserImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserImage.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,8 @@
 				096B3422286B28BF00A1DBCC /* Info.plist */,
 				096B3423286B28BF00A1DBCC /* main.m */,
 				096B3425286B28BF00A1DBCC /* loginwindow.entitlements */,
+				09EB503C287246E60030EF43 /* UserImage.m */,
+				09EB503E287247C80030EF43 /* UserImage.h */,
 			);
 			path = loginwindow;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 			files = (
 				096B3424286B28BF00A1DBCC /* main.m in Sources */,
 				096B341C286B28BD00A1DBCC /* AppDelegate.m in Sources */,
+				09EB503D287246E60030EF43 /* UserImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

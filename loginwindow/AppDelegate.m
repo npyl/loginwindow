@@ -49,20 +49,38 @@ static struct pam_conv pamc;
     node = [ODNode nodeWithSession:session type:kODNodeTypeLocalNodes error:&error];
     if (!node)
         goto OpenDirectoryError;
-        
+    
     query = [ODQuery queryWithNode:node
                     forRecordTypes:kODRecordTypeUsers
                          attribute:nil
                          matchType:kODMatchAny
                        queryValues:nil
-                  returnAttributes:nil
-                    maximumResults:0
+                  returnAttributes:kODAttributeTypeNFSHomeDirectory
+                    maximumResults:100
                              error:&error];
     if (!query)
         goto OpenDirectoryError;
 
     for (ODRecord *record in [query resultsAllowingPartial:NO error:&error]) {
-        NSLog(@"%@", record.recordName);
+        NSDictionary *attributes = [record recordDetailsForAttributes:@[kODAttributeTypeNFSHomeDirectory] error:&error];
+        if (!attributes)
+            goto OpenDirectoryError;
+  
+        NSArray *homeDirectories = [attributes objectForKey:@"dsAttrTypeStandard:NFSHomeDirectory"];
+        if (homeDirectories.count != 1)
+            continue;
+        
+        NSString *homeDirectory = homeDirectories.lastObject;
+        if (!homeDirectory)
+        {
+            NSLog(@"Error!");
+            continue;
+        }
+
+        if (![homeDirectory containsString:@"/Users"])
+            continue;
+
+        NSLog(@"%@: %@", record.recordName, homeDirectory);
     }
 
     // foreach user, create a UserImage

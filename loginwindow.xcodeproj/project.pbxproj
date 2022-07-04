@@ -12,7 +12,23 @@
 		096B3421286B28BF00A1DBCC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 096B341F286B28BF00A1DBCC /* MainMenu.xib */; };
 		096B3424286B28BF00A1DBCC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 096B3423286B28BF00A1DBCC /* main.m */; };
 		09EB503D287246E60030EF43 /* UserImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 09EB503C287246E60030EF43 /* UserImage.m */; };
+		09EB504228724FF00030EF43 /* libpam.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EB504128724FF00030EF43 /* libpam.2.dylib */; };
+		09EB504328724FF00030EF43 /* libpam.2.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 09EB504128724FF00030EF43 /* libpam.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		09EB504428724FF00030EF43 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				09EB504328724FF00030EF43 /* libpam.2.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		096B3417286B28BD00A1DBCC /* loginwindow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = loginwindow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -25,6 +41,7 @@
 		096B3425286B28BF00A1DBCC /* loginwindow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = loginwindow.entitlements; sourceTree = "<group>"; };
 		09EB503C287246E60030EF43 /* UserImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserImage.m; sourceTree = "<group>"; };
 		09EB503E287247C80030EF43 /* UserImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserImage.h; sourceTree = "<group>"; };
+		09EB504128724FF00030EF43 /* libpam.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpam.2.dylib; path = ../../../../usr/lib/libpam.2.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09EB504228724FF00030EF43 /* libpam.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +61,7 @@
 			children = (
 				096B3419286B28BD00A1DBCC /* loginwindow */,
 				096B3418286B28BD00A1DBCC /* Products */,
+				09EB503F28724FB00030EF43 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +89,14 @@
 			path = loginwindow;
 			sourceTree = "<group>";
 		};
+		09EB503F28724FB00030EF43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09EB504128724FF00030EF43 /* libpam.2.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,6 +107,7 @@
 				096B3413286B28BD00A1DBCC /* Sources */,
 				096B3414286B28BD00A1DBCC /* Frameworks */,
 				096B3415286B28BD00A1DBCC /* Resources */,
+				09EB504428724FF00030EF43 /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -280,6 +308,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.npyl.loginwindow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

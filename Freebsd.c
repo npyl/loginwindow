@@ -17,14 +17,6 @@ extern char **environ;
 static pam_handle_t *pamh;
 static struct pam_conv pamc;
 
-static void
-usage(void)
-{
-
-	fprintf(stderr, "Usage: su [login [args]]\n");
-	exit(1);
-}
-
 int
 main(int argc, char *argv[])
 {
@@ -35,27 +27,9 @@ main(int argc, char *argv[])
 	int o, pam_err, status;
 	pid_t pid;
 
-	while ((o = getopt(argc, argv, "h")) != -1)
-		switch (o) {
-		case 'h':
-		default:
-			usage();
-		}
-
-	argc -= optind;
-	argv += optind;
-
-	if (argc > 0) {
-		user = *argv;
-		--argc;
-		++argv;
-	} else {
-		user = "root";
-	}
-
 	/* initialize PAM */
 	pamc.conv = &openpam_ttyconv;
-	pam_start("su", user, &pamc, &pamh);
+	pam_start("loginwindow", NULL, &pamc, &pamh);
 
 	/* set some items */
 	gethostname(hostname, sizeof(hostname));
@@ -142,7 +116,7 @@ main(int argc, char *argv[])
 	}
 
 pamerr:
-	fprintf(stderr, "Sorry\n");
+	fprintf(stderr, "Sorry: %s\n", pam_strerror(pamh, pam_err));
 err:
 	pam_end(pamh, pam_err);
 	exit(1);
